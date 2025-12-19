@@ -3,97 +3,138 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aryan Wesavkar | Cybersecurity Portfolio</title>
+  <title>Aryan Wesavkar | Cybersecurity</title>
 
   <style>
-    /* ===== GLOBAL ===== */
-    body.cyber-bg {
+    /* ===== RESET ===== */
+    * {
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
       color: #e6f1ff;
-      background: linear-gradient(120deg, #020024, #090979, #00d4ff);
-      background-size: 300% 300%;
-      animation: cyberGradient 12s ease infinite;
+      background: radial-gradient(circle at top, #0a1a2f, #020b16);
+      overflow-x: hidden;
     }
 
-    @keyframes cyberGradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    /* ===== CYBER GRID BACKGROUND ===== */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(rgba(0,255,255,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,255,0.08) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridMove 20s linear infinite;
+      pointer-events: none;
+      z-index: -1;
     }
 
+    @keyframes gridMove {
+      from { background-position: 0 0; }
+      to { background-position: 600px 600px; }
+    }
+
+    /* ===== LAYOUT ===== */
     .container {
       max-width: 900px;
-      padding: 40px;
+      margin: auto;
+      padding: 60px 20px;
     }
 
-    h1, h2 {
-      color: #00eaff;
-      text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+    h1 {
+      font-size: 3rem;
+      color: #4ddcff;
+      margin-bottom: 10px;
     }
 
     p {
-      font-size: 1.1rem;
-      line-height: 1.6;
+      opacity: 0.9;
+      margin-bottom: 25px;
+      max-width: 650px;
+    }
+
+    section {
+      margin-top: 50px;
+    }
+
+    h2 {
+      color: #4ddcff;
+      margin-bottom: 15px;
     }
 
     ul {
-      margin-left: 20px;
+      list-style: none;
     }
 
-    li {
-      margin: 6px 0;
+    ul li {
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    ul li::before {
+      content: "›";
+      position: absolute;
+      left: 0;
+      color: #4ddcff;
+    }
+
+    /* ===== BUTTON ===== */
+    .resume-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      color: #0a1a2f;
+      background: linear-gradient(135deg, #4ddcff, #00ffa2);
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(77,220,255,0.6);
+      transition: all 0.3s ease;
+    }
+
+    .resume-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 30px rgba(0,255,162,0.9);
     }
 
     a {
-      color: #00ffff;
+      color: #4ddcff;
       text-decoration: none;
-      font-weight: 600;
     }
 
     a:hover {
       text-decoration: underline;
     }
 
-    /* ===== BUTTON ===== */
-    .resume-btn {
-      display: inline-block;
-      margin: 20px 0;
-      padding: 14px 26px;
-      border: 2px solid #00ffff;
-      border-radius: 8px;
-      color: #00ffff;
-      font-size: 1rem;
-      background: rgba(0, 0, 0, 0.3);
-      box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
-      transition: all 0.3s ease;
-    }
-
-    .resume-btn:hover {
-      background: #00ffff;
-      color: #020024;
-      box-shadow: 0 0 25px rgba(0, 255, 255, 0.9);
-    }
-
-    section {
-      margin-top: 40px;
+    footer {
+      margin-top: 80px;
+      opacity: 0.6;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 
-<body class="cyber-bg">
+<body>
   <div class="container">
 
     <!-- HERO -->
-    <h1>👋 Hi, I'm Aryan</h1>
+    <h1>👋 Hi, I’m Aryan</h1>
     <p>
-      Cybersecurity enthusiast focused on building <b>real-world security systems</b>,
+      Cybersecurity enthusiast focused on building real-world security systems,
       not just learning theory.
     </p>
 
-    <!-- RESUME -->
-    <a class="resume-btn" href="Aryan_Wesavkar_Cybersecurity_Resume.pdf" target="_blank">
+    <!-- ✅ FIXED RESUME BUTTON -->
+    <a class="resume-btn"
+       href="./Aryan_Wesavkar_Cybersecurity_Resume.pdf"
+       target="_blank">
       📄 Download Resume
     </a>
 
@@ -113,15 +154,13 @@
       <h2>🚀 Projects</h2>
       <ul>
         <li>
-          SecureAuth Monitor —
           <a href="https://github.com/25-THEBEaST-25/secure-auth-monitor" target="_blank">
-            GitHub
+            SecureAuth Monitor
           </a>
         </li>
         <li>
-          Login Guard —
           <a href="https://github.com/25-THEBEaST-25/login-guard" target="_blank">
-            GitHub
+            Login Guard
           </a>
         </li>
       </ul>
@@ -129,7 +168,7 @@
 
     <!-- CONTACT -->
     <section>
-      <h2>📫 Contact</h2>
+      <h2>📬 Contact</h2>
       <p>
         GitHub:
         <a href="https://github.com/25-THEBEaST-25" target="_blank">
@@ -138,6 +177,10 @@
       </p>
       <p>Email: aryan25wes@gmail.com</p>
     </section>
+
+    <footer>
+      © 2025 Aryan Wesavkar • Built with focus & caffeine ☕
+    </footer>
 
   </div>
 </body>
