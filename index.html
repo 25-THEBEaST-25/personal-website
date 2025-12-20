@@ -170,6 +170,34 @@
       display: block;
       margin: 8px 0;
     }
+    /* ===== SOCIAL LINKS ===== */
+.social-links {
+  margin-top: 15px;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: rgba(10, 25, 47, 0.9);
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  color: #64ffda;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.6);
+  border-color: rgba(0, 255, 255, 0.8);
+}
+
   </style>
 </head>
 
@@ -228,16 +256,29 @@
     </section>
 
     <!-- CONTACT -->
-    <section>
-      <h2>📬 Contact</h2>
-      <p>
-        GitHub:
-        <a href="https://github.com/25-THEBEaST-25" target="_blank">
-          25-THEBEaST-25
-        </a>
-      </p>
-      <p>Email: aryan25wes@gmail.com</p>
-    </section>
+   <section>
+  <h2>📬 Contact</h2>
+
+  <p>
+    GitHub:
+    <a href="https://github.com/25-THEBEaST-25" target="_blank">
+      25-THEBEaST-25
+    </a>
+  </p>
+
+  <p>Email: aryan25wes@gmail.com</p>
+
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/aryan-w" target="_blank">
+      🔗 LinkedIn
+    </a>
+
+    <a href="https://www.instagram.com/iamaryanw" target="_blank">
+      📸 Instagram
+    </a>
+  </div>
+</section>
+
 
     <footer>
       © 2025 Aryan Wesavkar • Built with focus & caffeine ☕
