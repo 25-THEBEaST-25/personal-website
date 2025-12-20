@@ -19,6 +19,7 @@
       color: #e6f1ff;
       background: radial-gradient(circle at top, #0a1a2f, #020b16);
       overflow-x: hidden;
+      cursor: none;
     }
 
     /* ===== CYBER GRID BACKGROUND ===== */
@@ -105,7 +106,7 @@
     }
 
     a {
-      color: #4ddcff;
+      color: #64ffda;
       text-decoration: none;
     }
 
@@ -119,9 +120,7 @@
       font-size: 0.9rem;
     }
 
-    /* ===================== */
-    /* CYBER PROJECT CARDS */
-    /* ===================== */
+    /* ===== PROJECT CARDS ===== */
     .project-card {
       background: rgba(10, 25, 47, 0.88);
       border: 1px solid rgba(0, 255, 255, 0.15);
@@ -158,98 +157,82 @@
       opacity: 1;
     }
 
-    .project-card h3 {
-      margin-top: 0;
-      color: #e6f1ff;
-    }
-
     .tech {
       font-size: 0.9rem;
       color: #64ffda;
-      opacity: 0.85;
       display: block;
       margin: 8px 0;
     }
-    /* ===== SOCIAL LINKS ===== */
-.social-links {
-  margin-top: 15px;
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-}
 
-.social-links a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  border-radius: 10px;
-  background: rgba(10, 25, 47, 0.9);
-  border: 1px solid rgba(0, 255, 255, 0.25);
-  color: #64ffda;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
+    /* ===== CURSOR ===== */
+    .cursor {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      background: rgba(100,255,218,0.9);
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(0,255,255,0.9);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+    }
 
-.social-links a:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 18px rgba(0, 255, 255, 0.6);
-  border-color: rgba(0, 255, 255, 0.8);
-}
-/* ===== CYBER CURSOR ===== */
-body {
-  cursor: none; /* hide default cursor */
-}
+    .cursor-trail {
+      position: fixed;
+      width: 30px;
+      height: 30px;
+      background: rgba(100,255,218,0.15);
+      border-radius: 50%;
+      filter: blur(12px);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9998;
+    }
 
-/* Main glowing cursor */
-.cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(100, 255, 218, 0.9);
-  box-shadow:
-    0 0 10px rgba(100, 255, 218, 0.8),
-    0 0 25px rgba(0, 255, 255, 0.6);
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-}
+    .cursor.hover {
+      transform: translate(-50%, -50%) scale(1.8);
+      box-shadow: 0 0 30px rgba(0,255,255,1);
+    }
 
-/* Trailing glow */
-.cursor-trail {
-  position: fixed;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: rgba(100, 255, 218, 0.15);
-  filter: blur(12px);
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 9998;
-}
+    .cursor.click {
+      animation: clickPulse 0.3s ease;
+    }
 
+    @keyframes clickPulse {
+      0% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -50%) scale(2); }
+      100% { transform: translate(-50%, -50%) scale(1); }
+    }
+
+    .spark {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background: rgba(0,255,255,0.8);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: sparkFade 0.6s linear forwards;
+      z-index: 9997;
+    }
+
+    @keyframes sparkFade {
+      to {
+        opacity: 0;
+        transform: translate(var(--dx), var(--dy)) scale(0);
+      }
+    }
   </style>
 </head>
 
 <body>
   <div class="container">
-
-    <!-- HERO -->
     <h1>👋 Hi, I’m Aryan</h1>
-    <p>
-      Cybersecurity enthusiast focused on building real-world security systems,
-      not just learning theory.
-    </p>
+    <p>Cybersecurity enthusiast focused on building real-world security systems.</p>
 
     <a class="resume-btn" href="./resume.pdf" target="_blank" download>
       📄 Download Resume
     </a>
 
-    <!-- WHAT I DO -->
     <section>
       <h2>🔐 What I Do</h2>
       <ul>
@@ -260,94 +243,85 @@ body {
       </ul>
     </section>
 
-    <!-- PROJECTS -->
     <section>
       <h2>🚀 Projects</h2>
 
       <div class="project-card">
         <h3>SecureAuth Monitor</h3>
-        <p>
-          Production-grade authentication security system with rate limiting,
-          IP blocking, account lockout, and strike escalation.
-        </p>
-        <span class="tech">Python • Security • Auth Systems</span>
-        <a href="https://github.com/25-THEBEaST-25/SecureAuth-Monitor" target="_blank">
-          🔗 View on GitHub
-        </a>
+        <p>Production-grade authentication security with rate limiting & IP blocking.</p>
+        <span class="tech">Python • Security</span>
+        <a href="https://github.com/25-THEBEaST-25/SecureAuth-Monitor" target="_blank">🔗 View on GitHub</a>
       </div>
 
       <div class="project-card">
         <h3>Login Guard</h3>
-        <p>
-          Brute-force attack simulator with logging, IP blocking,
-          and defensive security mechanisms.
-        </p>
+        <p>Brute-force attack simulator with defensive mechanisms.</p>
         <span class="tech">Python • Cybersecurity</span>
-        <a href="https://github.com/25-THEBEaST-25/Login-Guard" target="_blank">
-          🔗 View on GitHub
-        </a>
+        <a href="https://github.com/25-THEBEaST-25/Login-Guard" target="_blank">🔗 View on GitHub</a>
       </div>
     </section>
 
-    <!-- CONTACT -->
-   <section>
-  <h2>📬 Contact</h2>
-
-  <p>
-    GitHub:
-    <a href="https://github.com/25-THEBEaST-25" target="_blank">
-      25-THEBEaST-25
-    </a>
-  </p>
-
-  <p>Email: aryan25wes@gmail.com</p>
-
-  <div class="social-links">
-    <a href="https://www.linkedin.com/in/aryan-w" target="_blank">
-      🔗 LinkedIn
-    </a>
-
-    <a href="https://www.instagram.com/iamaryanw" target="_blank">
-      📸 Instagram
-    </a>
-  </div>
-</section>
-
+    <section>
+      <h2>📬 Contact</h2>
+      <p>Email: aryan25wes@gmail.com</p>
+      <p>
+        GitHub:
+        <a href="https://github.com/25-THEBEaST-25" target="_blank">25-THEBEaST-25</a>
+      </p>
+    </section>
 
     <footer>
       © 2025 Aryan Wesavkar • Built with focus & caffeine ☕
     </footer>
-
   </div>
+
+  <!-- CURSOR ELEMENTS -->
   <div class="cursor"></div>
-<div class="cursor-trail"></div>
-<script>
-  const cursor = document.querySelector(".cursor");
-  const trail = document.querySelector(".cursor-trail");
+  <div class="cursor-trail"></div>
 
-  let mouseX = 0, mouseY = 0;
-  let trailX = 0, trailY = 0;
+  <script>
+    const cursor = document.querySelector(".cursor");
+    const trail = document.querySelector(".cursor-trail");
 
-  document.addEventListener("mousemove", (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
+    let mouseX = 0, mouseY = 0, trailX = 0, trailY = 0;
 
-    cursor.style.left = mouseX + "px";
-    cursor.style.top = mouseY + "px";
-  });
+    document.addEventListener("mousemove", e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursor.style.left = mouseX + "px";
+      cursor.style.top = mouseY + "px";
+      if (Math.random() > 0.85) createSpark(mouseX, mouseY);
+    });
 
-  function animateTrail() {
-    trailX += (mouseX - trailX) * 0.15;
-    trailY += (mouseY - trailY) * 0.15;
+    function animateTrail() {
+      trailX += (mouseX - trailX) * 0.15;
+      trailY += (mouseY - trailY) * 0.15;
+      trail.style.left = trailX + "px";
+      trail.style.top = trailY + "px";
+      requestAnimationFrame(animateTrail);
+    }
+    animateTrail();
 
-    trail.style.left = trailX + "px";
-    trail.style.top = trailY + "px";
+    document.addEventListener("mousedown", () => {
+      cursor.classList.add("click");
+      setTimeout(() => cursor.classList.remove("click"), 300);
+    });
 
-    requestAnimationFrame(animateTrail);
-  }
+    document.querySelectorAll("a, .project-card").forEach(el => {
+      el.addEventListener("mouseenter", () => cursor.classList.add("hover"));
+      el.addEventListener("mouseleave", () => cursor.classList.remove("hover"));
+    });
 
-  animateTrail();
-</script>
-
+    function createSpark(x, y) {
+      const spark = document.createElement("div");
+      spark.className = "spark";
+      spark.style.left = x + "px";
+      spark.style.top = y + "px";
+      spark.style.setProperty("--dx", (Math.random() - 0.5) * 40 + "px");
+      spark.style.setProperty("--dy", (Math.random() - 0.5) * 40 + "px");
+      document.body.appendChild(spark);
+      setTimeout(() => spark.remove(), 600);
+    }
+  </script>
 </body>
 </html>
