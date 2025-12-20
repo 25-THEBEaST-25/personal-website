@@ -197,6 +197,40 @@
   box-shadow: 0 0 18px rgba(0, 255, 255, 0.6);
   border-color: rgba(0, 255, 255, 0.8);
 }
+/* ===== CYBER CURSOR ===== */
+body {
+  cursor: none; /* hide default cursor */
+}
+
+/* Main glowing cursor */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(100, 255, 218, 0.9);
+  box-shadow:
+    0 0 10px rgba(100, 255, 218, 0.8),
+    0 0 25px rgba(0, 255, 255, 0.6);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+/* Trailing glow */
+.cursor-trail {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(100, 255, 218, 0.15);
+  filter: blur(12px);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9998;
+}
 
   </style>
 </head>
@@ -285,5 +319,35 @@
     </footer>
 
   </div>
+  <div class="cursor"></div>
+<div class="cursor-trail"></div>
+<script>
+  const cursor = document.querySelector(".cursor");
+  const trail = document.querySelector(".cursor-trail");
+
+  let mouseX = 0, mouseY = 0;
+  let trailX = 0, trailY = 0;
+
+  document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    cursor.style.left = mouseX + "px";
+    cursor.style.top = mouseY + "px";
+  });
+
+  function animateTrail() {
+    trailX += (mouseX - trailX) * 0.15;
+    trailY += (mouseY - trailY) * 0.15;
+
+    trail.style.left = trailX + "px";
+    trail.style.top = trailY + "px";
+
+    requestAnimationFrame(animateTrail);
+  }
+
+  animateTrail();
+</script>
+
 </body>
 </html>
