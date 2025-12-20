@@ -53,19 +53,19 @@
       margin-bottom: 10px;
     }
 
+    h2 {
+      color: #4ddcff;
+      margin-bottom: 15px;
+    }
+
     p {
       opacity: 0.9;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       max-width: 650px;
     }
 
     section {
       margin-top: 50px;
-    }
-
-    h2 {
-      color: #4ddcff;
-      margin-bottom: 15px;
     }
 
     ul {
@@ -85,7 +85,7 @@
       color: #4ddcff;
     }
 
-    /* ===== BUTTON ===== */
+    /* ===== RESUME BUTTON ===== */
     .resume-btn {
       display: inline-block;
       margin-top: 20px;
@@ -118,6 +118,58 @@
       opacity: 0.6;
       font-size: 0.9rem;
     }
+
+    /* ===================== */
+    /* CYBER PROJECT CARDS */
+    /* ===================== */
+    .project-card {
+      background: rgba(10, 25, 47, 0.88);
+      border: 1px solid rgba(0, 255, 255, 0.15);
+      border-radius: 14px;
+      padding: 20px;
+      margin: 22px 0;
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(0, 255, 255, 0.45),
+        transparent
+      );
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px) scale(1.015);
+      box-shadow: 0 0 28px rgba(0, 255, 255, 0.35);
+      border-color: rgba(0, 255, 255, 0.6);
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
+    }
+
+    .project-card h3 {
+      margin-top: 0;
+      color: #e6f1ff;
+    }
+
+    .tech {
+      font-size: 0.9rem;
+      color: #64ffda;
+      opacity: 0.85;
+      display: block;
+      margin: 8px 0;
+    }
   </style>
 </head>
 
@@ -131,11 +183,9 @@
       not just learning theory.
     </p>
 
-    <!-- ✅ FIXED RESUME BUTTON -->
-<a class="resume-btn" href="./resume.pdf" target="_blank" download>
-  📄 Download Resume
-</a>
-
+    <a class="resume-btn" href="./resume.pdf" target="_blank" download>
+      📄 Download Resume
+    </a>
 
     <!-- WHAT I DO -->
     <section>
@@ -149,35 +199,33 @@
     </section>
 
     <!-- PROJECTS -->
-   <section class="projects">
-  <h2>🚀 Projects</h2>
+    <section>
+      <h2>🚀 Projects</h2>
 
-  <div class="project-card">
-    <h3>SecureAuth Monitor</h3>
-    <p>
-      Production-grade authentication security system with rate limiting,
-      IP blocking, account lockout, and strike escalation.
-    </p>
-    <span class="tech">Python • Security • Auth Systems</span>
-    <br />
-    <a href="https://github.com/25-THEBEaST-25/Secure-Auth-Monitor" target="_blank">
-      🔗 View on GitHub
-    </a>
-  </div>
+      <div class="project-card">
+        <h3>SecureAuth Monitor</h3>
+        <p>
+          Production-grade authentication security system with rate limiting,
+          IP blocking, account lockout, and strike escalation.
+        </p>
+        <span class="tech">Python • Security • Auth Systems</span>
+        <a href="https://github.com/25-THEBEaST-25/SecureAuth-Monitor" target="_blank">
+          🔗 View on GitHub
+        </a>
+      </div>
 
-  <div class="project-card">
-    <h3>Login Guard</h3>
-    <p>
-      Brute-force attack simulator with logging, IP blocking,
-      and defensive security mechanisms.
-    </p>
-    <span class="tech">Python • Cybersecurity</span>
-    <br />
-    <a href="https://github.com/25-THEBEaST-25/login-guard" target="_blank">
-      🔗 View on GitHub
-    </a>
-  </div>
-</section>
+      <div class="project-card">
+        <h3>Login Guard</h3>
+        <p>
+          Brute-force attack simulator with logging, IP blocking,
+          and defensive security mechanisms.
+        </p>
+        <span class="tech">Python • Cybersecurity</span>
+        <a href="https://github.com/25-THEBEaST-25/Login-Guard" target="_blank">
+          🔗 View on GitHub
+        </a>
+      </div>
+    </section>
 
     <!-- CONTACT -->
     <section>
