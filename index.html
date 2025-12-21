@@ -4,70 +4,88 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aryan Wesavkar | Cybersecurity</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicon (optional, prevents 404 warning) -->
+  <link rel="icon" href="favicon.ico" />
 
   <style>
-    /* ===== RESET ===== */
+    /* ===================== */
+    /* GLOBAL STYLES */
+    /* ===================== */
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Segoe UI", Tahoma, sans-serif;
     }
 
     body {
+      font-family: "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0a192f, #020c1b);
+      color: #ccd6f6;
       min-height: 100vh;
-      color: #e6f1ff;
-      background: radial-gradient(circle at top, #0a1a2f, #020b16);
       overflow-x: hidden;
-      cursor: none;
     }
 
-    /* ===== CYBER GRID BACKGROUND ===== */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background:
-        linear-gradient(rgba(0,255,255,0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,255,255,0.08) 1px, transparent 1px);
-      background-size: 60px 60px;
-      animation: gridMove 20s linear infinite;
-      pointer-events: none;
-      z-index: -1;
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    @keyframes gridMove {
-      from { background-position: 0 0; }
-      to { background-position: 600px 600px; }
-    }
-
-    /* ===== LAYOUT ===== */
     .container {
-      max-width: 900px;
+      max-width: 1100px;
       margin: auto;
-      padding: 60px 20px;
+      padding: 40px 20px;
     }
 
-    h1 {
+    /* ===================== */
+    /* HERO SECTION */
+    /* ===================== */
+
+    .hero {
+      text-align: left;
+      margin-bottom: 60px;
+    }
+
+    .hero h1 {
       font-size: 3rem;
-      color: #4ddcff;
+      color: #64ffda;
       margin-bottom: 10px;
     }
 
-    h2 {
-      color: #4ddcff;
-      margin-bottom: 15px;
-    }
-
-    p {
+    .hero p {
+      font-size: 1.2rem;
       opacity: 0.9;
-      margin-bottom: 20px;
-      max-width: 650px;
+      max-width: 600px;
     }
 
-    section {
-      margin-top: 50px;
+    .resume-btn {
+      margin-top: 25px;
+      display: inline-block;
+      padding: 14px 26px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #64ffda, #1de9b6);
+      color: #020c1b;
+      font-weight: bold;
+      transition: transform 0.2s ease;
+    }
+
+    .resume-btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* ===================== */
+    /* WHAT I DO */
+    /* ===================== */
+
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #64ffda;
     }
 
     ul {
@@ -75,8 +93,8 @@
     }
 
     ul li {
-      margin-bottom: 8px;
-      padding-left: 20px;
+      margin-bottom: 12px;
+      padding-left: 18px;
       position: relative;
     }
 
@@ -84,313 +102,172 @@
       content: "›";
       position: absolute;
       left: 0;
-      color: #4ddcff;
-    }
-
-    /* ===== RESUME BUTTON ===== */
-    .resume-btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 14px 28px;
-      border-radius: 10px;
-      color: #0a1a2f;
-      background: linear-gradient(135deg, #4ddcff, #00ffa2);
-      font-weight: bold;
-      text-decoration: none;
-      box-shadow: 0 0 20px rgba(77,220,255,0.6);
-      transition: all 0.3s ease;
-    }
-
-    .resume-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 0 30px rgba(0,255,162,0.9);
-    }
-
-    a {
       color: #64ffda;
-      text-decoration: none;
     }
 
-    a:hover {
-      text-decoration: underline;
+    /* ===================== */
+    /* PROJECT CARDS */
+    /* ===================== */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
     }
 
-    footer {
-      margin-top: 80px;
-      opacity: 0.6;
-      font-size: 0.9rem;
-    }
-
-    /* ===== PROJECT CARDS ===== */
     .project-card {
-      background: rgba(10, 25, 47, 0.88);
-      border: 1px solid rgba(0, 255, 255, 0.15);
+      background: rgba(10, 25, 47, 0.9);
+      border: 1px solid rgba(100, 255, 218, 0.2);
       border-radius: 14px;
       padding: 20px;
-      margin: 22px 0;
-      transition: all 0.35s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 14px;
-      background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(0, 255, 255, 0.45),
-        transparent
-      );
-      opacity: 0;
-      transition: opacity 0.35s ease;
+      transition: transform 0.3s ease;
     }
 
     .project-card:hover {
-      transform: translateY(-6px) scale(1.015);
-      box-shadow: 0 0 28px rgba(0, 255, 255, 0.35);
-      border-color: rgba(0, 255, 255, 0.6);
+      transform: translateY(-5px);
     }
 
-    .project-card:hover::before {
-      opacity: 1;
+    /* ===================== */
+    /* SOCIAL LINKS */
+    /* ===================== */
+
+    .social-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
     }
 
-    .tech {
-      font-size: 0.9rem;
-      color: #64ffda;
-      display: block;
-      margin: 8px 0;
+    .social-links a {
+      padding: 12px 18px;
+      border-radius: 8px;
+      border: 1px solid rgba(100, 255, 218, 0.3);
+      transition: background 0.3s ease;
     }
 
-    /* ===== CURSOR ===== */
+    .social-links a:hover {
+      background: rgba(100, 255, 218, 0.15);
+    }
+
+    /* ===================== */
+    /* MOBILE RESPONSIVE */
+    /* ===================== */
+
+    @media (max-width: 768px) {
+
+      .hero {
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+        margin: auto;
+      }
+
+      .section h2 {
+        text-align: center;
+      }
+
+      ul li {
+        text-align: center;
+      }
+
+      .social-links {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    /* ===================== */
+    /* CURSOR GLOW (DESKTOP) */
+    /* ===================== */
+
     .cursor {
-      position: fixed;
       width: 12px;
       height: 12px;
-      background: rgba(100,255,218,0.9);
       border-radius: 50%;
-      box-shadow: 0 0 12px rgba(0,255,255,0.9);
+      position: fixed;
       pointer-events: none;
+      background: #64ffda;
+      box-shadow: 0 0 15px #64ffda;
       transform: translate(-50%, -50%);
       z-index: 9999;
     }
-
-    .cursor-trail {
-      position: fixed;
-      width: 30px;
-      height: 30px;
-      background: rgba(100,255,218,0.15);
-      border-radius: 50%;
-      filter: blur(12px);
-      pointer-events: none;
-      transform: translate(-50%, -50%);
-      z-index: 9998;
-    }
-
-    .cursor.hover {
-      transform: translate(-50%, -50%) scale(1.8);
-      box-shadow: 0 0 30px rgba(0,255,255,1);
-    }
-
-    .cursor.click {
-      animation: clickPulse 0.3s ease;
-    }
-
-    @keyframes clickPulse {
-      0% { transform: translate(-50%, -50%) scale(1); }
-      50% { transform: translate(-50%, -50%) scale(2); }
-      100% { transform: translate(-50%, -50%) scale(1); }
-    }
-
-    .spark {
-      position: fixed;
-      width: 6px;
-      height: 6px;
-      background: rgba(0,255,255,0.8);
-      border-radius: 50%;
-      pointer-events: none;
-      animation: sparkFade 0.6s linear forwards;
-      z-index: 9997;
-    }
-
-    @keyframes sparkFade {
-      to {
-        opacity: 0;
-        transform: translate(var(--dx), var(--dy)) scale(0);
-      }
-    }
-    /* ===================== */
-/* MOBILE RESPONSIVE FIX */
-/* ===================== */
-
-@media (max-width: 768px) {
-
-  body {
-    overflow-x: hidden;
-  }
-
-  .container,
-  .projects,
-  .project-card {
-    width: 100%;
-    padding: 12px;
-  }
-
-  h1 {
-    font-size: 1.8rem;
-    text-align: center;
-  }
-
-  h2 {
-    font-size: 1.4rem;
-    text-align: center;
-  }
-
-  p {
-    font-size: 1rem;
-    line-height: 1.6;
-    text-align: center;
-  }
-
-  .project-card {
-    margin-bottom: 16px;
-  }
-
-  .social-links {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-  }
-}
-
   </style>
 </head>
 
 <body>
+
   <div class="container">
-    <h1>👋 Hi, I’m Aryan</h1>
-    <p>Cybersecurity enthusiast focused on building real-world security systems.</p>
 
-    <a class="resume-btn" href="./resume.pdf" target="_blank" download>
-      📄 Download Resume
-    </a>
+    <!-- HERO -->
+    <div class="hero">
+      <h1>👋 Hi, I’m Aryan</h1>
+      <p>Cybersecurity enthusiast focused on building real-world security systems.</p>
+      <a class="resume-btn" href="resume.pdf" download>Download Resume</a>
+    </div>
 
-    <section>
+    <!-- WHAT I DO -->
+    <div class="section">
       <h2>🔐 What I Do</h2>
       <ul>
         <li>Authentication & brute-force protection systems</li>
         <li>Rate limiting, IP blocking, account lockout</li>
         <li>Python-based security tooling</li>
-        <li>Daily cybersecurity practice (Cyber Daily)</li>
       </ul>
-    </section>
+    </div>
 
-    <section>
-      <h2>🚀 Projects</h2>
-
-      <div class="project-card">
-        <h3>SecureAuth Monitor</h3>
-        <p>Production-grade authentication security with rate limiting & IP blocking.</p>
-        <span class="tech">Python • Security</span>
-        <a href="https://github.com/25-THEBEaST-25/SecureAuth-Monitor" target="_blank">🔗 View on GitHub</a>
+    <!-- PROJECTS -->
+    <div class="section">
+      <h2>🧪 Projects</h2>
+      <div class="projects">
+        <div class="project-card">
+          <h3>Secure Auth Monitor</h3>
+          <p>Layered authentication security with rate limiting and IP bans.</p>
+        </div>
+        <div class="project-card">
+          <h3>Login Guard</h3>
+          <p>Brute-force simulator with logging and blocking logic.</p>
+        </div>
       </div>
+    </div>
 
-      <div class="project-card">
-        <h3>Login Guard</h3>
-        <p>Brute-force attack simulator with defensive mechanisms.</p>
-        <span class="tech">Python • Cybersecurity</span>
-        <a href="https://github.com/25-THEBEaST-25/Login-Guard" target="_blank">🔗 View on GitHub</a>
+    <!-- CONTACT -->
+    <div class="section">
+      <h2>📬 Contact</h2>
+      <div class="social-links">
+        <a href="mailto:aryan@example.com">📧 Email</a>
+        <a href="tel:+919999999999">📞 Call</a>
+        <a href="https://instagram.com/iamaryanw" target="_blank">📸 Instagram</a>
+        <a href="https://linkedin.com/in/aryan-w" target="_blank">💼 LinkedIn</a>
+        <a href="https://github.com/25-thebeast-25" target="_blank">🐙 GitHub</a>
       </div>
-    </section>
+    </div>
 
-<section>
-  <h2>📬 Contact</h2>
-
-  <p>
-    📧 Email:
-    <a href="mailto:aryan25wes@gmail.com">
-      aryan25wes@gmail.com
-    </a>
-  </p>
-
-  <p>
-    💻 GitHub:
-    <a href="https://github.com/25-THEBEaST-25" target="_blank">
-      25-THEBEaST-25
-    </a>
-  </p>
-
-  <p>
-    📸 Instagram:
-    <a href="https://instagram.com/iamaryanw" target="_blank">
-      @iamaryanw
-    </a>
-  </p>
-
-  <p>
-    📞 Phone:
-    <a href="tel:+919819778111">
-      +91 98197 78111
-    </a>
-  </p>
-</section>
-
-    <footer>
-      © 2025 Aryan Wesavkar • Built with focus & caffeine ☕
-    </footer>
   </div>
 
-  <!-- CURSOR ELEMENTS -->
-  <div class="cursor"></div>
-  <div class="cursor-trail"></div>
+  <!-- CURSOR ELEMENT -->
+  <div class="cursor" id="cursor"></div>
 
+  <!-- CURSOR SCRIPT (DISABLED ON MOBILE) -->
   <script>
-    const cursor = document.querySelector(".cursor");
-    const trail = document.querySelector(".cursor-trail");
+    const isTouchDevice =
+      'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-    let mouseX = 0, mouseY = 0, trailX = 0, trailY = 0;
+    if (!isTouchDevice) {
+      const cursor = document.getElementById("cursor");
 
-    document.addEventListener("mousemove", e => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      cursor.style.left = mouseX + "px";
-      cursor.style.top = mouseY + "px";
-      if (Math.random() > 0.85) createSpark(mouseX, mouseY);
-    });
-
-    function animateTrail() {
-      trailX += (mouseX - trailX) * 0.15;
-      trailY += (mouseY - trailY) * 0.15;
-      trail.style.left = trailX + "px";
-      trail.style.top = trailY + "px";
-      requestAnimationFrame(animateTrail);
-    }
-    animateTrail();
-
-    document.addEventListener("mousedown", () => {
-      cursor.classList.add("click");
-      setTimeout(() => cursor.classList.remove("click"), 300);
-    });
-
-    document.querySelectorAll("a, .project-card").forEach(el => {
-      el.addEventListener("mouseenter", () => cursor.classList.add("hover"));
-      el.addEventListener("mouseleave", () => cursor.classList.remove("hover"));
-    });
-
-    function createSpark(x, y) {
-      const spark = document.createElement("div");
-      spark.className = "spark";
-      spark.style.left = x + "px";
-      spark.style.top = y + "px";
-      spark.style.setProperty("--dx", (Math.random() - 0.5) * 40 + "px");
-      spark.style.setProperty("--dy", (Math.random() - 0.5) * 40 + "px");
-      document.body.appendChild(spark);
-      setTimeout(() => spark.remove(), 600);
+      document.addEventListener("mousemove", (e) => {
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
+      });
+    } else {
+      document.getElementById("cursor").style.display = "none";
     }
   </script>
+
 </body>
 </html>
