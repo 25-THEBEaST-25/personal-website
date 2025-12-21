@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aryan Wesavkar | Cybersecurity</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     /* ===== RESET ===== */
@@ -221,6 +222,51 @@
         transform: translate(var(--dx), var(--dy)) scale(0);
       }
     }
+    /* ===================== */
+/* MOBILE RESPONSIVE FIX */
+/* ===================== */
+
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .container,
+  .projects,
+  .project-card {
+    width: 100%;
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .project-card {
+    margin-bottom: 16px;
+  }
+
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+}
+
   </style>
 </head>
 
