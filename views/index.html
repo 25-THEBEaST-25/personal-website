@@ -7,6 +7,7 @@
     <title>Aryan - Cybersecurity Builder</title>
     <!-- Google Fonts: Hacker Style -->
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet">
+    <meta name="description" content="Aryan Wesavkar - Cybersecurity Portfolio specializing in authentication, rate limiting, and secure systems.">
     <style>
         :root {
             --bg-color: #020c1b;
@@ -618,7 +619,7 @@
         <section id="contact">
             <h2 class="section-title glitch" data-text="📬 ESTABLISH_UPLINK">📬 ESTABLISH_UPLINK</h2>
             <div class="contact-grid">
-                <a href="mailto:aryan25wes@gmail" class="contact-btn">Email_Terminal</a>
+                <a href="mailto:aryan25wes@gmail.com" class="contact-btn">Email_Terminal</a>
                 <a href="https://www.linkedin.com/in/aryan-w" class="contact-btn">LinkedIn_Net</a>
                 <a href="https://github.com/25-THEBEaST-25" class="contact-btn">GitHub_Repo</a>
                 <a href="https://www.instagram.com/theycallmewesu/" class="contact-btn">Instagram_ID</a>
@@ -650,7 +651,7 @@
         const ctx = canvas.getContext('2d');
 
         let particles = [];
-        const particleCount = 60; // Slightly fewer for cleaner look
+        const particleCount = window.innerWidth < 768 ? 30 : 60;// Slightly fewer for cleaner look
         const connectionDistance = 150;
 
         function resizeCanvas() {
