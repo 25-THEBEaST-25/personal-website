@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://25-thebeast-25.github.io/personal-website/sitemap.xml
