@@ -27,13 +27,13 @@
     <!-- Favicon (inline SVG shield) -->
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2300ff41' d='M12 1L3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4z'/%3E%3C/svg%3E" type="image/svg+xml">
 
-    <title>Aryan Wesavkar | Cybersecurity & Backend Developer</title>
+    <title>Aryan Wesavkar | Cybersecurity &amp; Backend Developer</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-    
+
     <style>
         /* ==================== CSS VARIABLES ==================== */
         :root {
@@ -297,6 +297,26 @@
             color: var(--bg-primary);
             box-shadow: 0 0 30px var(--glow-green);
             transform: translateY(-3px);
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .icon-arrow {
+            font-size: 12px;
+        }
+
+        .icon-arrow-sm {
+            font-size: 11px;
         }
 
         /* ==================== SECTIONS ==================== */
@@ -884,16 +904,17 @@
         <!-- Hero Section -->
         <section class="hero visible">
             <p class="hero-prefix">> initializing cybersecurity_architect.exe...</p>
-            <h1 aria-label="Hi, I'm Aryan">
+            <h1>
+                <span class="sr-only">Hi, I'm Aryan</span>
                 <span id="type-text" aria-hidden="true">HI, I'M ARYAN</span><span class="cursor" aria-hidden="true"></span>
             </h1>
             <p class="hero-description">
-                Enterprise-grade cybersecurity architect specializing in zero-trust authentication systems, 
+                Enterprise-grade cybersecurity architect specializing in zero-trust authentication systems,
                 intelligent rate-limiting mechanisms, and advanced abuse prevention infrastructure.
             </p>
             <a href="#contact" class="cta-button">
                 <span>> Establish Uplink</span>
-                <span style="font-size: 12px;">↓</span>
+                <span class="icon-arrow">↓</span>
             </a>
         </section>
 
@@ -904,12 +925,12 @@
                 <p class="section-subtitle">Core competencies in modern cybersecurity infrastructure</p>
             </div>
             <ul class="skills-list">
-                <li class="skill-item">Advanced authentication & multi-factor security protocols</li>
-                <li class="skill-item">Intelligent rate-limiting & distributed attack mitigation</li>
+                <li class="skill-item">Advanced authentication &amp; multi-factor security protocols</li>
+                <li class="skill-item">Intelligent rate-limiting &amp; distributed attack mitigation</li>
                 <li class="skill-item">IP blocking, account lockout, and dynamic response systems</li>
-                <li class="skill-item">Forensic logging, security event analysis & threat detection</li>
-                <li class="skill-item">Zero-trust architecture & defense-in-depth strategies</li>
-                <li class="skill-item">Python-based security tooling & custom defense systems</li>
+                <li class="skill-item">Forensic logging, security event analysis &amp; threat detection</li>
+                <li class="skill-item">Zero-trust architecture &amp; defense-in-depth strategies</li>
+                <li class="skill-item">Python-based security tooling &amp; custom defense systems</li>
             </ul>
         </section>
 
@@ -952,11 +973,11 @@
                             <li>Sliding-window rate limiting with burst protection algorithms</li>
                             <li>Dynamic IP blocking with automatic ban escalation</li>
                             <li>Account lockout mechanisms with auto-recovery procedures</li>
-                            <li>Real-time threat detection & automated response</li>
+                            <li>Real-time threat detection &amp; automated response</li>
                         </ul>
                         <a href="https://github.com/25-THEBEaST-25/secure-auth-monitor" class="project-link" target="_blank" rel="noopener noreferrer">
                             View Source Code
-                            <span style="font-size: 11px;">↗</span>
+                            <span class="icon-arrow-sm">↗</span>
                         </a>
                     </div>
                 </div>
@@ -970,14 +991,14 @@
                     <div class="project-body">
                         <h3 class="project-title">Login Guard</h3>
                         <ul class="project-features">
-                            <li>Simulates brute-force attack vectors & vulnerability testing</li>
-                            <li>Forensic logging with timestamp, IP, & user-agent capture</li>
-                            <li>Configurable threat thresholds & response policies</li>
-                            <li>Attack pattern recognition & security incident reporting</li>
+                            <li>Simulates brute-force attack vectors &amp; vulnerability testing</li>
+                            <li>Forensic logging with timestamp, IP, &amp; user-agent capture</li>
+                            <li>Configurable threat thresholds &amp; response policies</li>
+                            <li>Attack pattern recognition &amp; security incident reporting</li>
                         </ul>
                         <a href="https://github.com/25-THEBEaST-25/login-guard" class="project-link" target="_blank" rel="noopener noreferrer">
                             View Source Code
-                            <span style="font-size: 11px;">↗</span>
+                            <span class="icon-arrow-sm">↗</span>
                         </a>
                     </div>
                 </div>
